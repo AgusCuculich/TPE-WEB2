@@ -24,7 +24,7 @@ class itemApiController extends ApiController {
             //utilizamos la siguiente funcion para convertir los guiones bajos del parámetro GET a espacios en blanco
             $value = str_replace("_", " ", $value);
 
-            $allowedColumns = ['id', 'id_categoria', 'nombre', 'procesador', 'grafica', 'mother', 'disco', 'ram', 'imagen', 'precio'];
+            $allowedColumns = ['id', 'id_categoria', 'nombre', 'procesador', 'grafica', 'mother', 'disco', 'ram', 'imagen'];
 
             //corroboramos que el campo ingresado sea el nombre de una de las columnas de la tabla
             if (in_array($field, $allowedColumns)) {
@@ -49,7 +49,7 @@ class itemApiController extends ApiController {
             $sort = $_GET['sort'];
             $order = $_GET['order'];
 
-            $allowedColumns = ['id', 'id_categoria', 'nombre', 'procesador', 'grafica', 'mother', 'disco', 'ram', 'imagen', 'precio'];
+            $allowedColumns = ['id', 'id_categoria', 'nombre', 'procesador', 'grafica', 'mother', 'disco', 'ram', 'imagen'];
             $allowedOrders = ['asc', 'desc'];
 
             //corroboramos que el campo ingresado sea el nombre de una de las columnas de la tabla.
@@ -143,9 +143,7 @@ class itemApiController extends ApiController {
 
             $category = isset($body->id_categoria) ? $body->id_categoria : $item->id_categoria;
             
-            $price = isset($body->precio) ? $body->precio : $item->precio;
-            
-            $this->model->updateItem($id, $name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image, $price);
+            $this->model->updateItem($id, $name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image);
             $item = $this->model->getItem($id);
             $this->view->response('El item con id = '.$params[':ID'].' fue actualizado.', 200);
             $this->view->response($item, 200);
@@ -179,14 +177,13 @@ class itemApiController extends ApiController {
         $ram = isset($body->ram) ? $body->ram : null;
         $image = isset($body->imagen) ? $body->imagen : null;
         $category = isset($body->id_categoria) ? $body->id_categoria : null;
-        $price = isset($body->precio) ? $body->precio : null;
 
-        if (empty($name) || empty($cpu) || empty($gpu) || empty($motherboard) || empty($storage) || empty($ram) || empty($image) || empty($category) || empty($price)) {
+        if (empty($name) || empty($cpu) || empty($gpu) || empty($motherboard) || empty($storage) || empty($ram) || empty($image) || empty($category)) {
             $this->view->response("Complete todos los datos", 400);
             return;
         }
 
-        $this->model->newItem($name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image, $price);
+        $this->model->newItem($name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image);
         $id = $this->model->getLastId();
         $item = $this->model->getItem($id);
         $this->view->response($item, 201);

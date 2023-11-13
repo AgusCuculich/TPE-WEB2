@@ -57,15 +57,15 @@ _**Uso de parámetros para ordenar de manera ascendente o descandente la colecci
 
 Ejemplos:
 
-Para enseñar los elementos de la colección ordenados de manera ascendente por precio:
+Para enseñar los elementos de la colección ordenados de manera descendente por id:
 
-        localhost/folder/api/pc?sort=precio&order=asc
+        localhost/folder/api/pc?sort=id&order=desc
 
-Para enseñar los elementos de la colección ordenados de manera descendente por nombre:
+Para enseñar los elementos de la colección ordenados de manera ascendente por nombre:
 
-        localhost/folder/api/pc?sort=nombre&order=desc
+        localhost/folder/api/pc?sort=nombre&order=asc
 
-- **[GET] `localhost/folder/api/pc/:ID`**_
+- **[GET] `localhost/folder/api/pc/:ID`**
 
 Nos devuelve un elemento en base a su id.
 
@@ -79,7 +79,7 @@ Nos devuelve aquel elemento con id = 1
 
         localhost/folder/api/pc/1
 
-- **[PUT] `localhost/folder/api/pc/:ID`**_
+- **[PUT] `localhost/folder/api/pc/:ID`**
 
 Cumple con la función de actualizar/editar aquel elemento cuyo id especificamos.
 
@@ -105,7 +105,6 @@ Cumple con la función de añadir un nuevo elemento a la base de datos. La infor
     "ram": "ejemplo_cant_ram",
     "imagen": "ejemplo_url_imagen",
     "id_categoria": "ejemplo_categoria",
-    "precio": "ejemplo_precio"
 }
 ```
 
@@ -121,6 +120,5 @@ Ejemplo:
     "disco": "SDD 2TB",
     "ram": 32,
     "imagen": "https://res.cloudinary.com/jawa/image/upload/f_auto,ar_1:1,c_fill,w_3840,q_auto/production/listings/p3buijgwhvwiyp53k6ep",
-    "precio": "1395000.00"
 }
 ```

@@ -34,7 +34,7 @@ class itemModel extends Model{
     }
 
 
-    public function updateItem($id, $name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image, $price) {    
+    public function updateItem($id, $name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image) {    
         $query = $this->db->prepare('UPDATE pc SET 
         id_categoria = ?,
         nombre = ?,
@@ -43,21 +43,20 @@ class itemModel extends Model{
         mother = ?,
         disco = ?,
         ram = ?,
-        imagen = ?,
-        precio = ?
+        imagen = ?
         WHERE id = ?');
-        $query->execute([$category, $name, $cpu, $gpu, $motherboard, $storage, $ram, $image, $price, $id]);
+        $query->execute([$category, $name, $cpu, $gpu, $motherboard, $storage, $ram, $image, $id]);
     }
 
 
-    public function newItem($name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image, $price) {
+    public function newItem($name, $cpu, $gpu, $motherboard, $storage, $ram, $category, $image) {
         $query = $this->db->prepare('INSERT INTO pc 
-        (id, id_categoria, nombre, procesador, grafica, mother, disco, ram, imagen, precio)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)');
+        (id, id_categoria, nombre, procesador, grafica, mother, disco, ram, imagen)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)');
 
         $id = $this->db->lastInsertId();
 
-        $query->execute([$id, $category, $name, $cpu, $gpu, $motherboard, $storage, $ram, $image, $price]);
+        $query->execute([$id, $category, $name, $cpu, $gpu, $motherboard, $storage, $ram, $image]);
     }
 
 
