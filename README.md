@@ -2,7 +2,7 @@
 
 Comportamiento de cada endpoint:
 
-- **[GET] localhost/folder/api/user/token**
+- **[GET] `localhost/folder/api/user/token`**
 
 Un usuario podrá ingresar sus credenciales (usuario y contraseña) que en caso de ser correctas, se generará un token que tendrá una duración de una hora hasta que se vuelva inválido.
 
@@ -10,7 +10,7 @@ Ingreso con privilegios: username -> webadmin, password -> admin
 
 Ingreso sin privilegios: username -> queso, password -> queso
 
-- **[GET] localhost/folder/api/pc**
+- **[GET] `localhost/folder/api/pc`**
 
 Nos permite obtener toda la colección de la base de datos. A través del uso de Query Params podemos obtener un resultado modificado.
 
@@ -65,7 +65,7 @@ Para enseñar los elementos de la colección ordenados de manera descendente por
 
         localhost/folder/api/pc?sort=nombre&order=desc
 
-- **[GET] localhost/folder/api/pc/:ID**_
+- **[GET] `localhost/folder/api/pc/:ID`**_
 
 Nos devuelve un elemento en base a su id.
 
@@ -79,7 +79,7 @@ Nos devuelve aquel elemento con id = 1
 
         localhost/folder/api/pc/1
 
-- **[PUT] localhost/folder/api/pc/:ID**_
+- **[PUT] `localhost/folder/api/pc/:ID`**_
 
 Cumple con la función de actualizar/editar aquel elemento cuyo id especificamos.
 
@@ -89,9 +89,9 @@ Cumple con la función de actualizar/editar aquel elemento cuyo id especificamos
 
 Ejemplo:
 
-        localhost/tpe3/api/pc/9
+        localhost/folder/api/pc/9
 
-- **[POST] localhost/folder/api/pc**
+- **[POST] `localhost/folder/api/pc`**
 
 Cumple con la función de añadir un nuevo elemento a la base de datos. La información del nuevo elemento debe ser proporcionada a través del body de la solicitud en formato JSON.
 
