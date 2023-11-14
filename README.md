@@ -10,6 +10,12 @@ Ingreso con privilegios: username -> webadmin, password -> admin
 
 Ingreso sin privilegios: username -> queso, password -> queso
 
+![Ingresar credenciales en postman](images/postman.jpg)
+
+Este token generado será necesario tanto para actualizar/editar un item como para añadir uno nuevo.
+
+![Ejemplo de uso de token para añadir un elemento en postman](images/postman2.jpg "Ejemplo de uso de token para añadir un elemento en postman")
+
 - **[GET] `localhost/folder/api/pc`**
 
 Nos permite obtener toda la colección de la base de datos. A través del uso de Query Params podemos obtener un resultado modificado.
